@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: true
+  become: yes
+  become_user: root
+  roles:
+    - role: geerlingguy.java
+      ansible_distribution: Ubuntu
+      ansible_distribution_version: '20.04'
+      ansible_distribution_major_version: '20'
+      ansible_os_family: Debian
+    - role: geerlingguy.jenkins
+      ansible_os_family: Debian
+  tasks:
+    - name: Ensure ntp is at the latest version
+      ansible.builtin.apt:
+        name: ntp
+        state: latest
+      notify:
+        - Restart ntp
+
+  handlers:
+    - name: Restart ntp
+      ansible.builtin.service:
+        name: ntp
+        state: restarted
