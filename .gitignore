@@ -3,3 +3,6 @@
 
 # Log files (if you are creating logs in debug mode, uncomment this)
 # *.log
+
+# Chosen so that roles can be debugged locally and not left on guest after provisioning
+.provisioning/roles

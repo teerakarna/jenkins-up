@@ -12,6 +12,7 @@
       ansible_os_family: Debian
     - role: geerlingguy.jenkins
       ansible_os_family: Debian
+      jenkins_prefer_lts: true
   tasks:
     - name: Ensure ntp is at the latest version
       ansible.builtin.apt:
