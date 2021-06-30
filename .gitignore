@@ -5,4 +5,4 @@
 # *.log
 
 # Chosen so that roles can be debugged locally and not left on guest after provisioning
-.provisioning/roles
+provisioning/roles
